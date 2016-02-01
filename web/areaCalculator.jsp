@@ -4,6 +4,7 @@
     Author     : John
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,8 +17,10 @@
             }
             .btn{
                 background-color: yellow;
-                
+                font-style: italic;
                 height: 100px;
+                border-width: thick;
+                border-color: white;
                 width: 500px;
                 font-size: 48px;
                 border-radius: 50%;
@@ -30,11 +33,15 @@
                 font-size: 24px;
                 width: 800px;
                 color: white;
+                border-color: orange;
                 border-style: outset;
+                border-width: thick;
             }
             #triangle{
                 background-color: green;
+                border-width: thick;
                 font-size: 24px;
+                border-color: gold;
                 width: 800px;
                 color: white;
                 border-style: outset;
@@ -42,10 +49,13 @@
             }
             #rectangle{
                 background-color: black;
+                border-width: thick;
+                border-color: red;
                 font-size: 24px;
                 width: 800px;
                 color: white;
                 border-style: outset;
+                
             }
             
         </style>
@@ -58,22 +68,13 @@
             <input type="number" name="width" value=""/>
             <label>Enter Length</label>
             <input type="number" name="length" value=""/>
-            
+            <br>
+            <br>
             <input class="btn" type="submit" name="submit" value="Calculate"/>
             
             
         </form>
-        <h1><%
-                Object responseObj = request.getAttribute("myRecMSG");
-                Object errObj = request.getAttribute("errorMSG");
-                
-                if(responseObj != null){
-                   out.println(responseObj.toString()); 
-                }
-                if(errObj != null){
-                   out.println(errObj.toString()); 
-                }
-        %></h1></div>
+            <h1><c:out value="${myRecMSG}"></c:out></h1></div>
     
         <div id="circle"><h1>Find the area of a Circle</h1>
         
@@ -81,22 +82,12 @@
             <label>Enter Radius</label>
             <input type="number" name="radius" value=""/>
             <br>
-            
+            <br>
             <input class="btn" type="submit" name="submit" value="Calculate"/>
             
             
         </form>
-        <center><h1><%
-                Object responseObj2 = request.getAttribute("myCirMSG");
-                Object errObj2 = request.getAttribute("errorMSG");
-                
-                if(responseObj2 != null){
-                   out.println(responseObj2.toString()); 
-                }
-                if(errObj2 != null){
-                   out.println(errObj2.toString()); 
-                }
-        %></h1></div>
+            <center><h1><c:out value="${myCirMSG}"></c:out></h1></div>
         
         <div id="triangle"><h1>Find the area of a Triangle</h1>
         
@@ -105,21 +96,12 @@
             <input type="number" name="base" value=""/>
             <label>Enter Height</label>
             <input type="number" name="height" value=""/>
-            
+            <br>
+            <br>
             <input class="btn" type="submit" name="submit" value="Calculate"/>
             
             
         </form>
-        <h1><%
-                Object responseObj3 = request.getAttribute("myTriMSG");
-                Object errObj3 = request.getAttribute("errorMSG");
-                
-                if(responseObj3 != null){
-                   out.println(responseObj3.toString()); 
-                }
-                if(errObj3 != null){
-                   out.println(errObj3.toString()); 
-                }
-                %></h1></div></center>
+        <h1><c:out value="${myTriMSG}"></c:out></h1></div></center>
     </body>
 </html>
